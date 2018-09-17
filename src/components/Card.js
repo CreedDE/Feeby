@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const CardStyled = styled.div`
   position: relative;
@@ -31,16 +32,19 @@ const CardDesc = styled.div`
 `
 
 export default class Card extends Component {
+  static propTypes = {
+    title: PropTypes.string,
+    source: PropTypes.string,
+    img: PropTypes.string,
+  }
   render() {
+    const { title, source, img } = this.props
     return (
       <CardStyled>
-        <img src="https://source.unsplash.com/random/355x170" alt="hello" />
+        <img src={img} alt="news img" />
         <CardDesc>
-          <h1>Title</h1>
-          <p>
-            lorem ipsum dolor sit text let me grow dude
-            blaaaaaaasdasdadasddasdsadasdad
-          </p>
+          <h1>{title}</h1>
+          <p>{source}</p>
         </CardDesc>
       </CardStyled>
     )

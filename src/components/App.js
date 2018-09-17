@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import Card from './Card'
-/* import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom' 
-import { applyMiddleware, createStore } from 'redux' 
-import reducer from '../reducer'
-import thunk from 'redux-thunk' */
 
 class App extends Component {
+  state = {
+    title: 'Bild',
+    source: 'lorem ipsum dolor sit',
+    img: 'https://source.unsplash.com/random/355x170',
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Card />
+        <Card
+          title={this.state.title}
+          source={this.state.source}
+          img={this.state.img}
+        />
       </React.Fragment>
     )
   }
