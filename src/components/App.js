@@ -3,20 +3,18 @@ import Card from './Card'
 
 class App extends Component {
   state = {
-    title: 'Bild',
-    source: 'lorem ipsum dolor sit',
+    title: 'Titel von der News',
+    source: 'Beschreibung von der News',
     img: 'https://source.unsplash.com/random/355x170',
   }
 
   render() {
     return (
-      <React.Fragment>
-        <Card
-          title={this.state.title}
-          source={this.state.source}
-          img={this.state.img}
-        />
-      </React.Fragment>
+      <Card
+        title={this.state.title}
+        source={this.state.source}
+        img={this.state.img}
+      />
     )
   }
 }

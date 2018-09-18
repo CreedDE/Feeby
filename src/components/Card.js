@@ -37,6 +37,7 @@ export default class Card extends Component {
     source: PropTypes.string,
     img: PropTypes.string,
   }
+
   render() {
     const { title, source, img } = this.props
     return (
