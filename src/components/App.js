@@ -9,13 +9,8 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <Card
-        title={this.state.title}
-        source={this.state.source}
-        img={this.state.img}
-      />
-    )
+    const { title, img, source } = this.state
+    return <Card title={title} source={source} img={img} />
   }
 }
 
