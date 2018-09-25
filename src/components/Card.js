@@ -7,6 +7,7 @@ const CardStyled = styled.div`
   width: 90%;
   background: #eee;
   height: 300px;
+  margin-bottom: 15px;
 `
 const CardDesc = styled.div`
   position: absolute;
@@ -33,21 +34,21 @@ const CardDesc = styled.div`
 
 export default class Card extends Component {
   static propTypes = {
-    title: PropTypes.string,
-    source: PropTypes.string,
-    img: PropTypes.string,
+    infos: PropTypes.array,
+  }
+  renderNews() {
+    return this.props.infos.map((news, i) => (
+      <CardStyled key={i}>
+        <img src={news.img} alt="news img" />
+        <CardDesc>
+          <h1>{news.title}</h1>
+          <p>{news.source}</p>
+        </CardDesc>
+      </CardStyled>
+    ))
   }
 
   render() {
-    const { title, source, img } = this.props
-    return (
-      <CardStyled>
-        <img src={img} alt="news img" />
-        <CardDesc>
-          <h1>{title}</h1>
-          <p>{source}</p>
-        </CardDesc>
-      </CardStyled>
-    )
+    return <React.Fragment>{this.renderNews()}</React.Fragment>
   }
 }

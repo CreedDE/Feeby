@@ -3,14 +3,27 @@ import Card from './Card'
 
 class App extends Component {
   state = {
-    title: 'Titel von der News',
-    source: 'Beschreibung von der News',
-    img: 'https://source.unsplash.com/random/355x170',
+    news: [
+      {
+        title: 'Titel von der News',
+        source: 'Beschreibung von der News',
+        img: 'https://source.unsplash.com/random/355x170',
+      },
+      {
+        title: '2 Titel von der News',
+        source: 'Beschreibung von der 2 News',
+        img: 'https://source.unsplash.com/random/355x170',
+      },
+      {
+        title: '3 Titel von der News',
+        source: 'Beschreibung von der 3 News',
+        img: 'https://source.unsplash.com/random/355x170',
+      },
+    ],
   }
 
   render() {
-    const { title, img, source } = this.state
-    return <Card title={title} source={source} img={img} />
+    return <Card infos={this.state.news} />
   }
 }
 
