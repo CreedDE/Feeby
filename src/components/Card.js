@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const CardStyled = styled.div`
   position: relative;
@@ -33,10 +32,6 @@ const CardDesc = styled.div`
 `
 
 export default class Card extends Component {
-  static propTypes = {
-    infos: PropTypes.array,
-  }
-
   renderNews() {
     return (
       <React.Fragment>
