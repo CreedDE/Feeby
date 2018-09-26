@@ -1,29 +1,23 @@
 import React, { Component } from 'react'
-import Card from './Card'
+import { createStore } from 'redux'
+import reducer from '../reducer'
+import { Provider } from 'react-redux'
+import StartScreenContainer from '../containers/StartScreenContainer'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+const store = createStore(reducer)
 
 class App extends Component {
-  state = {
-    news: [
-      {
-        title: 'Titel von der News',
-        source: 'Beschreibung von der News',
-        img: 'https://source.unsplash.com/random/355x170',
-      },
-      {
-        title: '2 Titel von der News',
-        source: 'Beschreibung von der 2 News',
-        img: 'https://source.unsplash.com/random/355x170',
-      },
-      {
-        title: '3 Titel von der News',
-        source: 'Beschreibung von der 3 News',
-        img: 'https://source.unsplash.com/random/355x170',
-      },
-    ],
-  }
-
   render() {
-    return <Card infos={this.state.news} />
+    return (
+      <Router>
+        <Provider store={store}>
+          <div className="App">
+            <Route exact path="/" component={StartScreenContainer} />
+          </div>
+        </Provider>
+      </Router>
+    )
   }
 }
 

@@ -36,16 +36,25 @@ export default class Card extends Component {
   static propTypes = {
     infos: PropTypes.array,
   }
+
   renderNews() {
-    return this.props.infos.map((news, i) => (
-      <CardStyled key={i}>
-        <img src={news.img} alt="news img" />
-        <CardDesc>
-          <h1>{news.title}</h1>
-          <p>{news.source}</p>
-        </CardDesc>
-      </CardStyled>
-    ))
+    return (
+      <React.Fragment>
+        {this.props.state.news.map((news, index) => {
+          return (
+            <React.Fragment>
+              <CardStyled data-id-test="overview" key={index}>
+                <img data-id-test="news-img" src={news.img} alt="news img" />
+                <CardDesc>
+                  <h1>{news.title}</h1>
+                  <p>{news.source}</p>
+                </CardDesc>
+              </CardStyled>
+            </React.Fragment>
+          )
+        })}
+      </React.Fragment>
+    )
   }
 
   render() {
