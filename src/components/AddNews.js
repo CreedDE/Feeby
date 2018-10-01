@@ -14,9 +14,17 @@ const StyledHeader = styled.div`
   width: 100%;
   padding-left: 25px;
   color: #fff;
+  margin-bottom: 80px;
   h1 {
     margin: 0;
   }
+`
+
+const StyledForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
 `
 
 const StyledInput = styled.input`
@@ -24,6 +32,7 @@ const StyledInput = styled.input`
   border: none;
   border-radius: 25px;
   padding: 5px 25px;
+  margin-bottom: 20px;
 `
 
 const StyledButton = styled.button`
@@ -41,10 +50,12 @@ export default class AddNews extends Component {
           <StyledHeader>
             <h1>News hinzufügen</h1>
           </StyledHeader>
-          <StyledInput />
-          <StyledInput />
-          <StyledInput />
-          <StyledButton>Abesenden</StyledButton>
+          <StyledForm>
+            <StyledInput placeholder="Title" />
+            <StyledInput placeholder="description" />
+            <StyledInput placeholder="img link" />
+            <StyledButton>Abesenden</StyledButton>
+          </StyledForm>
         </StyledBackground>
       </React.Fragment>
     )
