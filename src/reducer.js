@@ -1,33 +1,25 @@
 import ACTIONS from './actions'
 
 const initialState = {
-  news: [
-    {
-      title: 'Titel von der News',
-      source: 'Beschreibung von der News',
-      img: 'https://source.unsplash.com/random/355x170',
-    },
-    {
-      title: '2 Titel von der News',
-      source: 'Beschreibung von der 2 News',
-      img: 'https://source.unsplash.com/random/355x170',
-    },
-    {
-      title: '3 Titel von der News',
-      source: 'Beschreibung von der 3 News',
-      img: 'https://source.unsplash.com/random/355x170',
-    },
-  ],
+  articles: [],
 }
+
+const url =
+  'https://newsapi.org/v2/top-headlines?' +
+  'country=de&' +
+  'apiKey=84b554b20b83402c880d4a2c9759b49e'
+
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+  })
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-  case ACTIONS.RENDER_ALL_NEWS:
+  case ACTIONS.IMPORT_API:
     return {
-      ...state,
-      title: action.payload.title,
-      source: action.payload.source,
-      img: action.payload.img,
+      articles: state.articles,
     }
   default:
     return state

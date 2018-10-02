@@ -1,11 +1,9 @@
 import { createAction } from 'redux-actions'
 
 const ACTIONS = {
-  RENDER_ALL_NEWS: 'RENDER_ALL_NEWS',
-  ADD_NEWS: 'ADD_NEWS',
+  IMPORT_API: 'IMPORT_API',
 }
 
-export const renderAllNews = createAction(ACTIONS.RENDER_ALL_NEWS)
-export const addNews = createAction(ACTIONS.ADD_NEWS)
+export const importApi = createAction(ACTIONS.IMPORT_API)
 
 export default ACTIONS

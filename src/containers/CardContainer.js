@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import Card from '../components/Card'
 
 const mapStateToProps = state => ({
-  state: state,
+  articles: state.articles,
 })
 
 const mapDispatchToProps = dispatch => ({})
