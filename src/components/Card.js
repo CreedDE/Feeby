@@ -7,6 +7,10 @@ const CardStyled = styled.div`
   background: #eee;
   height: 300px;
   margin-bottom: 15px;
+  img {
+    width: 373px;
+    height: 170px;
+  }
 `
 const CardDesc = styled.div`
   position: absolute;
@@ -32,20 +36,39 @@ const CardDesc = styled.div`
 `
 
 export default class Card extends Component {
+  state = {
+    articles: [],
+  }
+
+  componentDidMount() {
+    const url =
+      'https://newsapi.org/v2/top-headlines?' +
+      'country=de&' +
+      'apiKey=84b554b20b83402c880d4a2c9759b49e'
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        this.setState({ articles: data.articles })
+      })
+  }
   renderNews() {
     return (
       <React.Fragment>
-        {this.props.state.news.map((news, index) => {
+        {this.state.articles.map((news, index) => {
           return (
-            <React.Fragment>
-              <CardStyled data-id-test="overview" key={index}>
-                <img data-id-test="news-img" src={news.img} alt="news img" />
-                <CardDesc>
-                  <h1>{news.title}</h1>
-                  <p>{news.source}</p>
-                </CardDesc>
-              </CardStyled>
-            </React.Fragment>
+            <CardStyled data-id-test="overview" key={index}>
+              <img
+                data-id-test="news-img"
+                src={news.urlToImage}
+                alt="failed to load the news IMG or they have no images"
+              />
+              <CardDesc>
+                <h1>{news.title}</h1>
+                <p>{news.description}</p>
+              </CardDesc>
+            </CardStyled>
           )
         })}
       </React.Fragment>
