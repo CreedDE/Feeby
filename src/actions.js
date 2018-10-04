@@ -1,9 +1,15 @@
 import { createAction } from 'redux-actions'
+import { loadArticles } from './services'
 
 const ACTIONS = {
-  RENDER_ALL_NEWS: 'RENDER_ALL_NEWS',
+  REPLACE_ARTICLES: 'REPLACE_ARTICLES',
 }
 
-export const renderAllNews = createAction(ACTIONS.RENDER_ALL_NEWS)
+export const replaceArticles = createAction(ACTIONS.REPLACE_ARTICLES)
+export const getArticlesFromServer = () => dispatch => {
+  loadArticles().then(data =>
+    dispatch(replaceArticles({ articles: data.articles }))
+  )
+}
 
 export default ACTIONS

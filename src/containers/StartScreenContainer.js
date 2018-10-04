@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import StartScreen from '../screens/StartScreen'
 
 const mapStateToProps = state => ({
-  state: state,
+  articles: state.articles,
 })
 
 const mapDispatchToProps = dispatch => ({})
