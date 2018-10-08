@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import '../css/header.css'
 
 const HeaderStyled = styled.div`
   background: #227fdc;
@@ -15,6 +16,7 @@ const HeaderStyled = styled.div`
   }
 
   i {
+    color: #fff;
     display: flex;
     align-items: center;
     font-size: 26px;
@@ -22,11 +24,27 @@ const HeaderStyled = styled.div`
 `
 
 export default class Header extends Component {
+  myFunction() {
+    document.getElementById('myDropdown').classList.toggle('show')
+  }
+
   render() {
     return (
       <HeaderStyled>
         <h2>Feed</h2>
-        <i className="fas fa-bars" />
+        <div className="dropdown">
+          <button onClick={this.myFunction} className="dropbtn">
+            <i className="fas fa-bars" />
+          </button>
+          <div id="myDropdown" className="dropdown-content">
+            <div className="dropdown-items">
+              <i className="fas fa-search" />
+            </div>
+            <div className="dropdown-items">
+              <i className="fas fa-plus" />
+            </div>
+          </div>
+        </div>
       </HeaderStyled>
     )
   }
