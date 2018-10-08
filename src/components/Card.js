@@ -6,10 +6,12 @@ const CardStyled = styled.div`
   position: relative;
   width: 90%;
   background: #eee;
-  height: 300px;
-  margin-bottom: 15px;
+  min-height: 300px;
+  max-height: 300px;
+  margin-bottom: 25px;
+  border-radius: 0 0 4px 4px;
   img {
-    width: 373px;
+    width: 100%;
     height: 170px;
   }
 `
@@ -19,7 +21,9 @@ const CardDesc = styled.div`
   width: 100%;
   background: #2380dc;
   border-radius: 0 0 4px 4px;
-  height: 130px;
+  min-height: 130px;
+  max-height: 130px;
+  overflow: hidden;
 
   h1 {
     font-size: 18px;
@@ -54,24 +58,6 @@ export default class Card extends Component {
       </CardStyled>
     )
   }
-
-  /*
-  {this.props.articles.map((news, index) => {
-          return (
-            <CardStyled data-id-test="overview" key={index}>
-              <img
-                data-id-test="news-img"
-                src={news.urlToImage}
-                alt="failed to load the news IMG or they have no"
-              />
-              <CardDesc>
-                <h1>{news.title}</h1>
-                <p>{news.description}</p>
-              </CardDesc>
-            </CardStyled>
-          )
-        })}
-  */
 
   render() {
     return <React.Fragment>{this.renderNews()}</React.Fragment>
