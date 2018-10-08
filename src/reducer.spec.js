@@ -15,33 +15,24 @@ describe('reducer', () => {
   describe(ACTIONS.REPLACE_ARTICLES, () => {
     it('loads all articles from server', () => {
       const state = {
-        articles: [
-          {
-            source: { id: null, name: 'name of source' },
-            author: 'author of news',
-            title: 'title of news',
-            description: 'description of news',
-            url: 'url of news',
-            urlToImage: 'url to image of news',
-            publishedAt: 'published date 01.10.2018',
-            content: 'content of full news',
-          },
-        ],
+        articles: [],
       }
       const action = {
         type: ACTIONS.REPLACE_ARTICLES,
+        payload: {
+          articles: [
+            {
+              test: 'test1',
+              test2: 'test2',
+            },
+          ],
+        },
       }
       expect(reducer(state, action)).toEqual({
         articles: [
           {
-            source: { id: null, name: 'name of source' },
-            author: 'author of news',
-            title: 'title of news',
-            description: 'description of news',
-            url: 'url of news',
-            urlToImage: 'url to image of news',
-            publishedAt: 'published date 01.10.2018',
-            content: 'content of full news',
+            test: 'test1',
+            test2: 'test2',
           },
         ],
       })

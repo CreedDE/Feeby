@@ -1,11 +1,14 @@
 import { connect } from 'react-redux'
-import StartScreen from '../screens/StartScreen'
+import StartScreen from '../components/StartScreen'
+import { getArticlesFromServer } from '../actions'
 
 const mapStateToProps = state => ({
   articles: state.articles,
 })
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch => ({
+  onLoadApi: () => dispatch(getArticlesFromServer()),
+})
 
 export default connect(
   mapStateToProps,

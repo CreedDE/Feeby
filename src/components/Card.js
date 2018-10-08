@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const CardStyled = styled.div`
   position: relative;
@@ -36,14 +37,26 @@ const CardDesc = styled.div`
 `
 
 export default class Card extends Component {
-  componentDidMount() {
-    this.props.onLoadApi()
+  static propTypes = {
+    articles: PropTypes.array,
+    onLoadApi: PropTypes.func,
   }
 
   renderNews() {
+    const { urlToImage, title, description, index } = this.props
     return (
-      <React.Fragment>
-        {this.props.articles.map((news, index) => {
+      <CardStyled data-id-test="overview" key={index}>
+        <img src={urlToImage} alt="" />
+        <CardDesc>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </CardDesc>
+      </CardStyled>
+    )
+  }
+
+  /*
+  {this.props.articles.map((news, index) => {
           return (
             <CardStyled data-id-test="overview" key={index}>
               <img
@@ -58,9 +71,7 @@ export default class Card extends Component {
             </CardStyled>
           )
         })}
-      </React.Fragment>
-    )
-  }
+  */
 
   render() {
     return <React.Fragment>{this.renderNews()}</React.Fragment>
