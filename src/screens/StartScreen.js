@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Card from './Card'
+import Card from '../components/Card'
 import PropTypes from 'prop-types'
-import Header from './Header'
+import Header from '../components/Header'
 
 const Body = styled.div`
   background: #3c99f5;

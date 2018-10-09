@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import '../css/header.css'
+import { Link } from 'react-router-dom'
 
 const HeaderStyled = styled.div`
   background: #227fdc;
@@ -38,10 +39,14 @@ export default class Header extends Component {
           </button>
           <div id="myDropdown" className="dropdown-content">
             <div className="dropdown-items">
-              <i className="fas fa-search" />
+              <Link to="/">
+                <i className="fas fa-search" />
+              </Link>
             </div>
             <div className="dropdown-items">
-              <i className="fas fa-plus" />
+              <Link to="/addNews">
+                <i className="fas fa-plus" />
+              </Link>
             </div>
           </div>
         </div>
