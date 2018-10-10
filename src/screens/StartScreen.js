@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Card from './Card'
+import Card from '../components/Card'
 import PropTypes from 'prop-types'
+import Header from '../components/Header'
 
 const Body = styled.div`
-  background: #eee;
+  background: #3c99f5;
   height: 100vh;
+`
+
+const CardList = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 83vh;
+  overflow: scroll;
 `
 
 export default class StartScreen extends Component {
@@ -21,7 +30,7 @@ export default class StartScreen extends Component {
   renderCards() {
     const { articles } = this.props
     return (
-      <Body>
+      <CardList>
         {articles.map((allNews, index) => {
           return (
             <Card
@@ -32,11 +41,16 @@ export default class StartScreen extends Component {
             />
           )
         })}
-      </Body>
+      </CardList>
     )
   }
 
   render() {
-    return <React.Fragment>{this.renderCards()}</React.Fragment>
+    return (
+      <Body>
+        <Header />
+        {this.renderCards()}
+      </Body>
+    )
   }
 }

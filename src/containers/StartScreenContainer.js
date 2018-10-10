@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import StartScreen from '../components/StartScreen'
+import StartScreen from '../screens/StartScreen'
 import { getArticlesFromServer } from '../actions'
 
 const mapStateToProps = state => ({
