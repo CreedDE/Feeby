@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const CardStyled = styled.div`
   position: relative;
@@ -50,11 +51,13 @@ export default class Card extends Component {
     const { urlToImage, title, description, index } = this.props
     return (
       <CardStyled data-id-test="overview" key={index}>
-        <img src={urlToImage} alt="" />
-        <CardDesc>
-          <h1>{title}</h1>
-          <p>{description}</p>
-        </CardDesc>
+        <img src={urlToImage} alt={urlToImage} />
+        <Link to="/readNews">
+          <CardDesc>
+            <h1>{title}</h1>
+            <p>{description}</p>
+          </CardDesc>
+        </Link>
       </CardStyled>
     )
   }
