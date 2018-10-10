@@ -11,7 +11,7 @@ storiesOf('Cards', module)
   .add('full Card', () => (
     <Card
       title={text('Title', 'Input title')}
-      source={text('description', 'input here some description')}
-      img={text('img', 'https://source.unsplash.com/random/355x170')}
+      description={text('description', 'input here some description')}
+      urlToImage={text('img', 'https://source.unsplash.com/random/355x170')}
     />
   ))
