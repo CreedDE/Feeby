@@ -15,6 +15,11 @@ const HeaderToBack = styled.div`
   padding: 15px 35px;
   color: #fff;
   margin-bottom: 25px;
+
+  i {
+    color: #fff;
+    font-size: 24px;
+  }
 `
 
 export default class ReadNewsScreen extends Component {
