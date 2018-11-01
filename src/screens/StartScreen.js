@@ -38,6 +38,7 @@ export default class StartScreen extends Component {
               urlToImage={allNews.urlToImage}
               title={allNews.title}
               description={allNews.description}
+              index={index}
             />
           )
         })}

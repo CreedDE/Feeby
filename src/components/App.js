@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import '../css/global.css'
 import thunk from 'redux-thunk'
 import AddNewsScreenContainer from '../containers/AddNewsScreenContainer'
+import ReadNewsScreenContainer from '../containers/ReadNewsScreenContainer'
 
 const store = createStore(
   reducer,
@@ -22,6 +23,7 @@ class App extends Component {
           <div className="App">
             <Route exact path="/" component={StartScreenContainer} />
             <Route path="/addNews" component={AddNewsScreenContainer} />
+            <Route path="/readNews" component={ReadNewsScreenContainer} />
           </div>
         </Provider>
       </Router>
