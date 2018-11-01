@@ -51,8 +51,8 @@ export default class Card extends Component {
     const { urlToImage, title, description, index } = this.props
     return (
       <CardStyled data-id-test="overview" key={index}>
-        <img src={urlToImage} alt={urlToImage} />
-        <Link to="/readNews">
+        <Link to={`/readNews?id=${index}`}>
+          <img src={urlToImage} alt={urlToImage} />
           <CardDesc>
             <h1>{title}</h1>
             <p>{description}</p>

@@ -6,6 +6,10 @@ const FullNews = styled.div`
   height: 83vh;
   color: #fff;
   overflow: scroll;
+  padding: 0 25px;
+  img {
+    width: 100%;
+  }
 `
 
 export default class ReadNews extends Component {

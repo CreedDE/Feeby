@@ -28,25 +28,18 @@ export default class ReadNewsScreen extends Component {
   }
 
   static propTypes = {
-    articles: PropTypes.array,
+    article: PropTypes.object,
     onLoadApi: PropTypes.func,
   }
 
   renderClickedNews() {
-    const { articles } = this.props
+    const { article } = this.props
     return (
-      <React.Fragment>
-        {articles.map((clickedNews, index) => {
-          return (
-            <ReadNews
-              key={index}
-              title={clickedNews.title}
-              urlToImage={clickedNews.urlToImage}
-              content={clickedNews.content}
-            />
-          )
-        })}
-      </React.Fragment>
+      <ReadNews
+        title={article.title}
+        urlToImage={article.urlToImage}
+        content={article.content}
+      />
     )
   }
 
